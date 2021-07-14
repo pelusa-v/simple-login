@@ -1,0 +1,19 @@
+version: "3.9"
+   
+services:
+    django:
+        build:
+            context: ./django
+            dockerfile: Dockerfile
+        container_name: auth
+        command: python manage.py runserver 0.0.0.0:8000
+        ports:
+          - "8001:8000"
+    
+    react:
+        build:
+            context: ./react
+            dockerfile: Dockerfile
+        container_name: auth_ui
+        ports:
+            - 3001:3000
